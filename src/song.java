@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package project;
+
 
 /**
  *
  * @author Fatima
  */
+import java.io.*;
+import java.util.*;
 
-
-public class song {
+public class song extends node{
    private String artist; 
     private String name; 
     private int numberplays; 
@@ -21,14 +22,14 @@ public class song {
     song(){ 
        this.name = name ; 
        this.artist = artist; 
-       this.duration = duration ; 
+      this.duration = duration ; 
        this.numberplays = numberplays; 
        
               
         
     } 
     
-    song(String name, String Artist, int duration , int numerplays){ 
+    song(String name, String artist, int duration , int numberplays){ 
         this.name = name ; 
        this.artist = artist; 
        this.duration = duration ; 
@@ -71,6 +72,10 @@ public class song {
     public void setDuration(int duration) {
         this.duration = duration;
     }
+    
+    
+    
+    
     
     
     

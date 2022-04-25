@@ -3,19 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package project;
+
+
+import java.util.Comparator;
 
 /**
  *
  * @author Fatima
  */
-public class PROJECT {
+public class nameComparator implements Comparator<song> {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    @Override
+    public int compare(song o1, song o2) {
+     
+        return o1.getName().compareTo(o2.getName());
+        
+        
     }
     
 }
