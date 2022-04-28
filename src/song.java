@@ -17,7 +17,7 @@ public class song extends node{
     private String name; 
     private int numberplays; 
     private int duration ; 
-    
+    public int priority; 
     
     song(){ 
        this.name = name ; 
@@ -28,6 +28,11 @@ public class song extends node{
               
         
     } 
+    
+    song(String name){
+       this.name = name ;  
+    } 
+    
     
     song(String name, String artist, int duration , int numberplays){ 
         this.name = name ; 

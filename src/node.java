@@ -11,6 +11,7 @@
 public class node {
   
     private node next; 
+    
     private node previous; 
 
     
