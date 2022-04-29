@@ -9,7 +9,7 @@
  * @author Fatima
  */
 public class node {
-  
+    node head; 
     private node next; 
     
     private node previous; 
@@ -42,8 +42,9 @@ public class node {
         this.previous = prevoius;
     }
     
-    
-    
+     
+ 
+   
 
 
     

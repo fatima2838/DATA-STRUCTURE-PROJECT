@@ -82,57 +82,55 @@ public class treesetExample {
    
     list.addAll(playlist2);
     
-   // addFirstSong(list, new song("the first song"));
-   // addLastSong(list, new song("the last song")); 
+
      for(song s : list)
         {
            System.out.print(s.getName() ) ; 
             System.out.println();
         }
+    
+    list.addFirst(new song("first song "));
+    list.addLast(new song("last song "));
      
-     
-     int a = 0 ; 
-     song playingnow = list.get(a); 
-     while(list.get(a) != null){
-    System.out.print("Currently playing : "+ playingnow.getName() + " do u want to play the next song ?? 1, 0"); 
-    Scanner input = new Scanner(System.in); 
-    int in = input.nextInt();
-    if(in == 1 ){
-        a++;
-        if (a==(list.size())){
-            break; 
-        } 
-        playingnow = list.get(a); 
-        
-    } 
-    if (in==0){
-        break; 
-    } } 
+   
+     playnextsong(list); 
      
 //PRIORITY QUEUE
-
+System.out.println("3- Implementing priority queue");
      PriorityQueue<song> queue = new PriorityQueue<>(new priorityComparator());
      
      
      //filling in the queue while keeping the insertion order 
      for(int i = 0 ; i<list.size(); i++){
      song  currentsong = list.get(i); 
-     currentsong.priority= i ; // this gives space to fill in the 
+     currentsong.priority= i ; 
      queue.add(currentsong);
     
      }
      
-     //queue.poll();//removes the top priority  element zero 
-     //song s7 = new song("this is my favourite song ");
-     //s7.priority= 0; 
+    //queue.poll();//removes the top priority  element zero 
+    //song s7 = new song("this is my favourite song ");
+    //s7.priority= 0; 
      
-  // queue.add(s7);
+    // queue.add(s7);
+    System.out.println("this is your queue (before adding new song) :"); 
+    
        showqueue(queue);
-       song thenewsong = new song("this is the new added song ");
-       thenewsong.priority = 0 ;
-       queue.add(thenewsong); 
+       
+       song newsong = new song("song-added-to-queue");
+       newsong.priority = 0 ;
+       queue.add(newsong); 
+        System.out.println("this is your queue (after adding new song) :"); 
        showqueue(queue);
-
+       
+     /*   System.out.println("please add a song "); 
+        Scanner q_input = new Scanner(System.in) ; 
+        newsong = new song(q_input.nextLine());
+        System.out.println("this is your queue (after adding " + q_input + ":"); 
+        queue.add(newsong); 
+       
+*/ 
+      playnextsong(queue); 
   }
     
     
@@ -140,52 +138,38 @@ public class treesetExample {
     
 //****methods for inked list ****************************************************************************************************************    
     //adding song to the befinning of linked list
-      public static void addFirstSong(LinkedList<song> list, song randomsong)
-   {
-      song newSong = new song();     // make a new NODE
-        song start = null;
-      newSong.setNext(start);          // new NODE points to previous start
-      newSong = randomsong;
-      start = newSong;               // start now points to new NODE
-   }
-      
+   
    //add song at the end of linked list   
-   public static void addLastSong(LinkedList<song> list, song randomsong)
-   {
-        song start = null;
-      song temp = list.getFirst();            // temp points at first node
-      while (temp.getNext()!= null)     // find last node
-      {
-         temp = (song) temp.getNext();          // move to next node
-      }
-      
-      song newSong = new song();    // make a new NODE
-      newSong = randomsong; 
-      temp.setNext(newSong);          // attach new NODE at end of list
-   }
+
    
+   public static void playnextsong(LinkedList<song> list){ 
+       int a = 0 ; 
+     song playingnow = list.get(a); 
+     while(list.get(a) != null){
+    System.out.println("Currently playing : "+ playingnow.getName() + " do u want to play the next song ?? 1, 0"); 
+    Scanner input = new Scanner(System.in); 
+    int in = input.nextInt();
    
-   public void playnextsong(LinkedList<song> list, song currentsong){ 
-       int i = 	list.indexOf(currentsong);
-    for( song s : list){// filing linked list using for loop 
-       
-           if (list.indexOf(s) ==(i+1))
-            System.out.println("currently playing" + s.getName());
+    if(in == 1 ){
+        a++;
+        if (a==(list.size())){
+            System.out.println("end of the playlist, it will start over. "); playnextsong(list);  break; 
         } 
+        playingnow = list.get(a); 
+        
+    } 
+    else if (in==0){
+        break; 
+    } } 
+     
        
    }
+  
+   
    
 //****methods for priority queue******************************************************************************************************************   
     //this method takes one song form and inserts it into the priority queue so that it plays next 
-  /* public static void showqueue(PriorityQueue<song> queue){
-       PriorityQueue<song> newqueue = new PriorityQueue<song>(new priorityComparator());
-       newqueue.addAll(queue);
-       
-       newqueue.forEach((var s) -> {                      //this syntax was recommended by netbeans 
-           
-           System.out.println(s.getName() + s.priority);       
-        }); 
-   } */ 
+
     
     public static void showqueue(PriorityQueue<song> queue){
         PriorityQueue<song> temp = new  PriorityQueue<song>(new priorityComparator()); 
@@ -195,7 +179,33 @@ public class treesetExample {
            System.out.println(" "+ currentsong.getName() + currentsong.priority); 
        }
     }
-    
+     public static void playnextsong(PriorityQueue<song> queue){ 
+         PriorityQueue<song> temp = new  PriorityQueue<song>(new priorityComparator()); 
+        temp.addAll(queue);
+        int pr = 0 ; 
+        while (!temp.isEmpty()){
+         System.out.println("you are currently playing: "+ temp.poll().getName() ); 
+         System.out.println(" enter 1 to play the next song, 2 to add a song of your choice , or 0 to stop : ");
+         
+         Scanner input = new Scanner(System.in); 
+         int in = input.nextInt(); 
+          input.nextLine();
+         if (in == 0 ) { 
+              break; 
+         } 
+         
+         else if (in ==2 ){
+             System.out.println("enter the name : ");
+             song newsong = new song(input.nextLine()); 
+             newsong.priority= pr; 
+             temp.add(newsong); 
+         } 
+            pr++; 
+        } 
+         
+         
+      } 
+     
     
     
    
