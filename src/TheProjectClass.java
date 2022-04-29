@@ -14,7 +14,7 @@ import java.util.TreeSet;
 import java.io.*;
 import java.util.*;
 
-public class treesetExample {
+public class TheProjectClass {
 
     public static void main(String[] args){
 //TREE-SET 
