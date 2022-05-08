@@ -89,6 +89,13 @@ public class TheProjectClass {
     list.addFirst(new song("first song "));
     list.addLast(new song("last song "));
      
+   System.out.println("after adding (first song ) and (last song ) : "); 
+   
+   for(song s : list)
+        {
+          System.out.print(s.getName() ) ; 
+           System.out.println();
+        }
    
      playnextsong(list); 
      
@@ -113,7 +120,7 @@ System.out.println("3- Implementing priority queue");
      }
      
     
-    System.out.println("this is your queue (before adding new song) :"); 
+    System.out.println("this is your queue (before adding a new song) :"); 
     
        showqueue(queue);
        
@@ -173,7 +180,7 @@ System.out.println("3- Implementing priority queue");
         temp.addAll(queue);
         int pr = 0 ; 
         while (!temp.isEmpty()){
-         System.out.println("you are currently playing: "+ temp.poll().getName() ); 
+         System.out.println("you are currently playing: ("+ temp.poll().getName() +")"); 
          System.out.println(" enter 1 to play the next song, 2 to add a song of your choice , or 0 to stop : ");
          
          Scanner input = new Scanner(System.in); 
