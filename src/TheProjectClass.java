@@ -188,6 +188,9 @@ System.out.println("3- Implementing priority queue");
              song newsong = new song(input.nextLine()); 
              newsong.priority= pr; 
              temp.add(newsong); 
+             System.out.println();
+             System.out.println("this your queue after you added the song : "); 
+             showqueue(temp); 
          } 
             pr++; 
         } 
