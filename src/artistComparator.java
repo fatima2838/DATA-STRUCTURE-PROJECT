@@ -1,5 +1,5 @@
 
-import java.util.Comparator;
+
 
 
 /*
@@ -12,6 +12,9 @@ import java.util.Comparator;
  *
  * @author Fatima
  */
+
+import java.util.Comparator;
+
 public class artistComparator implements Comparator<song> {
 
    public int compare(song o1, song o2) {

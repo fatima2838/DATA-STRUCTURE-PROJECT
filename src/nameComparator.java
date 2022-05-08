@@ -5,12 +5,15 @@
  */
 
 
-import java.util.Comparator;
+
 
 /**
  *
  * @author Fatima
  */
+
+import java.util.Comparator;
+
 public class nameComparator implements Comparator<song> {
 
     @Override

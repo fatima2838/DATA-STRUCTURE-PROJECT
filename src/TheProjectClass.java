@@ -9,10 +9,12 @@
  *
  * @author Fatima
  */
-
-import java.util.TreeSet;
 import java.io.*;
-import java.util.*;
+
+import java.util.Scanner; 
+import java.util.TreeSet;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
 
 public class TheProjectClass {
 
@@ -27,17 +29,16 @@ public class TheProjectClass {
     song s3 = new song("c name", "c artist", 5 , 5000); 
     
     
-   playlist1.add(s1); // the elements are added a, c , b * but when printed they will be abc in alphabetical order 
+   playlist1.add(s1); 
    playlist1.add(s3); 
    playlist1.add(s2); 
-    
+    // the elements are added a, c , b * but when printed they will be abc in alphabetical order 
     
     
     //traversing though the treeSet 
     //object type  o  : list 
     System.out.println("welcome to your music player! ,the following playlist is sorted alphabetical order :  ");
-    
-    for(song s : playlist1)
+ for(song s : playlist1)
         {
             System.out.print(s.getName() + " ") ; 
         } 
@@ -74,19 +75,15 @@ public class TheProjectClass {
    System.out.println("2- Implementing linked list ");
    LinkedList<song> list = new LinkedList<song>(); 
    
-   /* for(song s : playlist2)// filing linked list using for loop 
-        {
-           list.add(s);
-           
-        } */ 
+  
    
     list.addAll(playlist2);
     
 
      for(song s : list)
         {
-           System.out.print(s.getName() ) ; 
-            System.out.println();
+          System.out.print(s.getName() ) ; 
+           System.out.println();
         }
     
     list.addFirst(new song("first song "));
@@ -95,6 +92,13 @@ public class TheProjectClass {
    
      playnextsong(list); 
      
+     
+     
+      /* for(song s : playlist2)// filing linked list using for loop 
+        {
+           list.add(s);
+           
+        } */ 
 //PRIORITY QUEUE
 System.out.println("3- Implementing priority queue");
      PriorityQueue<song> queue = new PriorityQueue<>(new priorityComparator());
@@ -108,11 +112,7 @@ System.out.println("3- Implementing priority queue");
     
      }
      
-    //queue.poll();//removes the top priority  element zero 
-    //song s7 = new song("this is my favourite song ");
-    //s7.priority= 0; 
-     
-    // queue.add(s7);
+    
     System.out.println("this is your queue (before adding new song) :"); 
     
        showqueue(queue);
@@ -123,13 +123,7 @@ System.out.println("3- Implementing priority queue");
         System.out.println("this is your queue (after adding new song) :"); 
        showqueue(queue);
        
-     /*   System.out.println("please add a song "); 
-        Scanner q_input = new Scanner(System.in) ; 
-        newsong = new song(q_input.nextLine());
-        System.out.println("this is your queue (after adding " + q_input + ":"); 
-        queue.add(newsong); 
-       
-*/ 
+    
       playnextsong(queue); 
   }
     
@@ -137,11 +131,8 @@ System.out.println("3- Implementing priority queue");
     
     
 //****methods for inked list ****************************************************************************************************************    
-    //adding song to the befinning of linked list
-   
-   //add song at the end of linked list   
 
-   
+
    public static void playnextsong(LinkedList<song> list){ 
        int a = 0 ; 
      song playingnow = list.get(a); 
@@ -168,9 +159,7 @@ System.out.println("3- Implementing priority queue");
    
    
 //****methods for priority queue******************************************************************************************************************   
-    //this method takes one song form and inserts it into the priority queue so that it plays next 
-
-    
+ 
     public static void showqueue(PriorityQueue<song> queue){
         PriorityQueue<song> temp = new  PriorityQueue<song>(new priorityComparator()); 
         temp.addAll(queue); 
@@ -202,8 +191,7 @@ System.out.println("3- Implementing priority queue");
          } 
             pr++; 
         } 
-         
-         
+   
       } 
      
     

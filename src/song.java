@@ -24,9 +24,6 @@ public class song extends node{
        this.artist = artist; 
       this.duration = duration ; 
        this.numberplays = numberplays; 
-       
-              
-        
     } 
     
     song(String name){

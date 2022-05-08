@@ -5,12 +5,15 @@
  */
 
 
-import java.util.Comparator;
+
 
 /**
  *
  * @author Fatima
  */
+
+import java.util.Comparator;
+
 public class numberplaysComparator implements Comparator<song>{
 
     public int compare(song o1, song o2)
