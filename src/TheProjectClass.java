@@ -23,12 +23,13 @@ public class TheProjectClass {
     // playlist1 will be sorted by song name 
         System.out.println("1-implementing treeset");
     TreeSet<song> playlist1 = new TreeSet<song>(new nameComparator());
-    
+  
+   // song ss = new song("ss","artists", 3, 100); 
     song s1 = new song("a name", "a artist", 5 , 5000); 
     song s2 = new song("b name", "b artist", 5 , 5000); 
     song s3 = new song("c name", "c artist", 5 , 5000); 
-    
-    
+ 
+
    playlist1.add(s1); 
    playlist1.add(s3); 
    playlist1.add(s2); 
